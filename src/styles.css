@@ -1,0 +1,165 @@
+/* Theme variables */
+:root {
+  --bg: #f6f7fb;
+  --text: #0f172a;
+  --muted: #55607a;
+  --accent: #7c3aed; /* purple */
+}
+
+:root.dark {
+  --bg: #0b1220;
+  --text: #e6eef8;
+  --muted: #a6b0c4;
+  --accent: #3ddc97; /* teal accent for dark */
+}
+
+/* Base */
+html, body, #root { height: 100%; scroll-behavior: smooth }
+body { margin: 0; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: var(--bg); color: var(--text); }
+.site { min-height: 100%; display: flex; flex-direction: column; }
+
+/* Nav */
+.nav { position:sticky; top:0; z-index:40; background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent); border-bottom: 1px solid rgba(0,0,0,0.03); }
+.nav-inner { display:flex; align-items:center; justify-content:space-between; padding:0.5rem 1.2rem; }
+.nav-brand { font-weight:700; letter-spacing:0.6px }
+.nav-toggle { display:none; background:transparent; border:0; font-size:1.1rem; color:var(--muted) }
+.nav-links { display:flex; gap:1rem; list-style:none; margin:0; padding:0 }
+.nav-links a { color:var(--muted); text-decoration:none; padding:0.35rem 0.6rem; border-radius:6px }
+.nav-links a.active { color:var(--accent); background: rgba(0,0,0,0.03) }
+
+/* Header */
+.site-header { display:flex; align-items:center; justify-content:space-between; padding: 1rem 2rem; position:sticky; top:48px; backdrop-filter: blur(6px); z-index:20; }
+.brand h1 { margin:0; font-size:1.2rem; letter-spacing: 0.4px }
+.subtitle { margin:0; font-size:0.85rem; color:var(--muted) }
+
+/* Make anchors land correctly under the fixed header */
+section { scroll-margin-top: 120px }
+
+/* Hero */
+.hero-section { display:flex; align-items:center; gap:2rem; padding:3rem 2rem; min-height:70vh; }
+.intro { max-width:560px }
+.intro h2 { margin-top:0; font-size:2.2rem }
+.links a { margin-right:1rem; color:var(--accent); text-decoration:none }
+
+/* Parallax hint for better performance */
+[data-parallax] { will-change: transform; transition: transform 0.15s linear }
+
+.section { padding:4rem 2rem; }
+.muted { color: var(--muted); }
+
+/* Skills Net */
+.skills-net { width:100%; height:420px; border-radius:12px; background: linear-gradient(180deg, rgba(20,20,40,0.03), transparent); position:relative; overflow:hidden; margin-top:1rem }
+:root.dark .skills-net { background: linear-gradient(180deg, rgba(6,10,16,0.02), transparent); }
+.skills-tooltip { position:absolute; pointer-events:none; background:var(--bg); color:var(--text); border:1px solid rgba(0,0,0,0.06); padding:0.6rem 0.8rem; border-radius:8px; box-shadow: 0 8px 30px rgba(2,6,23,0.08); transform:translate(-50%, -120%); white-space:nowrap; font-size:0.9rem }
+
+/* Dark mode tooltip override */
+:root.dark .skills-tooltip { background: rgba(6,10,16,0.96); color: var(--text); border: 1px solid rgba(255,255,255,0.06); }
+
+/* Solid nav when scrolled for better visibility */
+.nav.scrolled { background: var(--bg); box-shadow: 0 8px 28px rgba(2,6,23,0.12); border-bottom: 1px solid rgba(0,0,0,0.06) }
+:root.dark .nav.scrolled { background: rgba(6,10,16,0.98); border-bottom: 1px solid rgba(255,255,255,0.04) }
+
+/* Projects */
+.projects-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem }
+.project-card { padding:1.2rem; border-radius:12px; background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent); box-shadow: 0 10px 30px rgba(2,6,23,0.06); border: 1px solid rgba(255,255,255,0.02); display:flex; gap:1rem; align-items:flex-start }
+.project-thumb { width:120px; height:80px; border-radius:8px; background: linear-gradient(135deg, var(--accent), rgba(0,0,0,0.06)); flex-shrink:0 }
+.project-info { flex:1 }
+.project-meta { display:flex; gap:0.5rem; margin-top:0.6rem; flex-wrap:wrap }
+.tag { background: rgba(255,255,255,0.03); color:var(--muted); padding:0.25rem 0.5rem; border-radius:6px; font-size:0.85rem }
+.project-card:hover { transform:translateY(-6px); transition: transform 220ms cubic-bezier(.2,.9,.2,1) }
+.project-card h4 { margin:0 0 0.4rem 0 }
+.project-card p { margin:0; color:var(--muted) }
+.project-card .actions { margin-top:0.8rem }
+.project-card a, .project-card button { color: var(--accent); background:transparent; border:0; cursor:pointer }
+
+/* Modal */
+.project-modal { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:60 }
+.project-modal .overlay { position:absolute; inset:0; backdrop-filter: blur(6px); background: rgba(2,6,23,0.6) }
+.project-modal .panel { position:relative; z-index:62; background:var(--bg); color:var(--text); padding:1.6rem; border-radius:12px; width: min(760px, 94%); box-shadow:0 30px 80px rgba(2,6,23,0.6) }
+.project-modal .close { position:absolute; right:12px; top:12px; border:0; background:transparent; cursor:pointer }
+
+.site-footer { text-align:center; padding:2rem; color:var(--muted) }
+
+/* Canvas sizing */
+.canvas-wrap { width: 560px; max-width: 45vw; height: 420px; border-radius:16px; overflow:hidden; box-shadow: 0 20px 60px rgba(2,6,23,0.08); background: linear-gradient(180deg, rgba(0,0,0,0.03), transparent); }
+
+/* Theme toggle: explicit color so it remains legible on both themes */
+.theme-toggle {
+  padding: 0.45rem 0.8rem;
+  border-radius:8px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  cursor:pointer;
+  color: var(--text);
+}
+
+/* Make the toggle more visible in dark mode */
+:root.dark .theme-toggle { border-color: rgba(255,255,255,0.08); color: var(--text); }
+
+/* Contact */
+.section.contact { display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; min-height:620px }
+.contact-center { display:flex; flex-direction:column; align-items:center; gap:60px }
+.contact-canvas { display:inline-block; border-radius:16px; overflow:hidden; background: radial-gradient(circle at 50% 40%, rgba(0,0,0,0.06), transparent 32%), linear-gradient(180deg, rgba(0,0,0,0.02), transparent); box-shadow: 0 40px 120px rgba(2,6,23,0.12); width:820px; height:380px; padding:12px }
+:root.dark .contact-canvas { background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.01), transparent 32%), linear-gradient(180deg, rgba(6,10,16,0.02), transparent) }
+.contact-card { display:inline-flex; align-items:center; gap:14px; padding:14px 20px; border-radius:14px; color: white; background: linear-gradient(90deg, var(--accent), rgba(0,0,0,0.12)); text-decoration:none; font-weight:800; box-shadow: 0 12px 48px rgba(0,0,0,0.26); border: 1px solid rgba(255,255,255,0.03); font-size:16px }
+.contact-card svg { display:block }
+.contact-card:hover { transform: translateY(-8px); box-shadow: 0 34px 80px rgba(0,0,0,0.36) }
+:root.dark .contact-card { border: 1px solid rgba(255,255,255,0.03) }
+
+@media (max-width:900px) {
+  .contact-canvas { width: 96%; height: 300px }
+  .contact-center { gap: 26px }
+}
+/* Why hire me */
+.why-hire { padding: 4.75rem 2rem 3rem; background: linear-gradient(180deg, rgba(0,0,0,0.01), transparent); text-align:center }
+.why-hire h3 { margin-bottom:10px; font-size:1.6rem }
+.hire-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:32px; max-width:1100px; margin: 22px auto 6px }
+.hire-card { background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:26px; border-radius:14px; box-shadow: 0 14px 46px rgba(2,6,23,0.07); text-align:left; display:flex; gap:16px; align-items:flex-start; min-height:140px }
+.hire-card .badge { background: var(--accent); color: white; width:44px; height:44px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; font-size:16px }
+.hire-card h4 { margin:0 0 6px 0; font-size:1.05rem }
+.hire-card p { margin:0; color:var(--muted); font-size:0.95rem }
+.hire-cta { display:flex; gap:18px; justify-content:center; margin-top:22px }
+.btn-cta { background: var(--accent); color:white; padding:12px 22px; border-radius:12px; font-weight:800; text-decoration:none; box-shadow: 0 10px 36px rgba(0,0,0,0.18) }
+.btn-link { color:var(--accent); padding:10px 14px; text-decoration:underline }
+
+/* sections spacing */
+.section { padding: 6rem 2rem }
+
+@media (max-width:900px) {
+  .hire-grid { grid-template-columns: 1fr }
+  .why-hire { padding: 2.5rem 1rem }
+}
+
+@media (max-width:900px) {
+  .hire-grid { grid-template-columns: 1fr }
+}
+
+/* hide legacy contact form styles if any remain */
+.contact-form { display:none }
+/* hide legacy contact form styles if any remain */
+.contact-form { display:none }
+
+@media (max-width:900px) {
+  .contact-canvas { width: 96%; height: 260px }
+  .contact-center { gap: 18px }
+}
+/* hide legacy contact form styles if any remain */
+.contact-form { display:none }
+
+@media (max-width:900px) {
+  .contact-canvas { width: 96%; height: 220px }
+}
+
+
+/* Responsive adjustments */
+@media (max-width:900px) {
+  .hero-section { flex-direction:column; padding:2rem 1rem }
+  .canvas-wrap { width:100%; height:320px; max-width:100% }
+  .nav-toggle { display:inline-block }
+  .nav-links { display:none; position:absolute; right:12px; top:56px; background:var(--bg); padding:0.6rem; border-radius:8px; box-shadow: 0 10px 40px rgba(2,6,23,0.08); }
+  .nav-links.open { display:flex; flex-direction:column; gap:0.4rem }
+  .skills-net { height:320px }
+}
+
+/* Small polish */
+a { color: var(--accent) }

@@ -1,0 +1,7 @@
+Alejandro Serrano — Resume
+
+This is a placeholder resume file. Replace with your actual PDF or resume file named "resume.pdf" and update the link in the project.
+
+Contact: hello@example.com
+LinkedIn: https://www.linkedin.com/in/alejandro-serrano-calvo-92b02623a/
+GitHub: https://github.com/alexc2serr
