@@ -25,8 +25,10 @@ export default function WhyHire () {
         {cards.map((c) => (
           <article key={c.title} className="hire-card">
             <div className="badge">✓</div>
-            <h4>{c.title}</h4>
-            <p className="muted">{c.desc}</p>
+            <div className="hire-copy">
+              <h4>{c.title}</h4>
+              <p className="muted">{c.desc}</p>
+            </div>
           </article>
         ))}
       </div>

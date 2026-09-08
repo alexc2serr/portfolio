@@ -169,9 +169,9 @@ export default function App () {
       </header>
 
       <main>
-        <section id="home" className="hero-section" data-parallax data-parallax-speed="0.06">
+        <section id="home" className="hero-section">
           <Hero />
-          <div className="intro" data-parallax data-parallax-speed="0.12">
+          <div className="intro">
             <h2>Hi, I&apos;m Alejandro</h2>
             <p>
               I am Alejandro Serrano, a student from Zaragoza, Spain studying a
@@ -181,17 +181,23 @@ export default function App () {
           </div>
         </section>
 
-        <section id="skills" className="section" data-parallax data-parallax-speed="0.04">
+        <section id="skills" className="section">
           <h3>Skills</h3>
           <p className="muted">Hover a node to see a short description</p>
           <SkillsNet skills={skills} />
         </section>
 
-        <section id="projects" className="section" data-parallax data-parallax-speed="0.02">
-          <h3>Projects</h3>
+        <section id="projects" className="section">
+          <div className="section-heading">
+            <div>
+              <p className="section-kicker">Selected work</p>
+              <h3>Projects</h3>
+            </div>
+            <p className="section-summary">A selection of systems, products, and security-focused experiments.</p>
+          </div>
           <div className="projects-grid">
-            {projects.map((p) => (
-              <ProjectCard key={p.title} project={p} onDetails={() => openProject(p)} />
+            {projects.map((p, index) => (
+              <ProjectCard key={p.title} project={p} index={index} onDetails={() => openProject(p)} />
             ))}
           </div>
         </section>
